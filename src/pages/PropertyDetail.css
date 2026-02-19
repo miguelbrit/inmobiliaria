@@ -1,0 +1,255 @@
+.property-detail-page {
+  padding-bottom: 5rem;
+  background-color: #ffffff;
+}
+
+/* Gallery - Grid Layout for aesthetic */
+.detail-gallery {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
+  height: 550px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.main-image {
+  grid-row: span 2;
+  height: 100%;
+}
+
+.main-image img, .side-images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  cursor: pointer;
+}
+
+.main-image img:hover {
+  transform: scale(1.05);
+}
+
+.side-images {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.5rem;
+  height: 100%;
+}
+
+/* Main Layout */
+.detail-content-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.detail-header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.detail-tag {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-right: 12px;
+  margin-bottom: 1rem;
+}
+
+.featured-tag {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.detail-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.detail-location {
+  color: #64748b;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.detail-section {
+  margin-bottom: 3.5rem;
+}
+
+.detail-section h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: #1e293b;
+  position: relative;
+  display: inline-block;
+}
+
+.detail-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.description-text {
+  color: #475569;
+  line-height: 1.9;
+  font-size: 1.1rem;
+  white-space: pre-line;
+}
+
+/* Features Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: #f8fafc;
+  padding: 1.25rem;
+  border-radius: 16px;
+  border: 1px solid #f1f5f9;
+}
+
+.feature-icon {
+  font-size: 1.8rem;
+}
+
+.feature-label {
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 1rem;
+}
+
+/* Sidebar Contact Card */
+.detail-sidebar {
+  position: sticky;
+  top: 100px;
+}
+
+.contact-card {
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+  border: 1px solid #f1f5f9;
+}
+
+.price-container {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.price-label {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.price-tag {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.agent-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.agent-avatar {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--color-primary), #0077b6);
+  color: white;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+.agent-name {
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 2px;
+}
+
+.agent-role {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.wa-btn {
+  background-color: #25d366 !important;
+  color: white !important;
+  border: none !important;
+  margin-bottom: 12px;
+  font-weight: 700 !important;
+}
+
+.wa-btn:hover {
+  background-color: #128c7e !important;
+  transform: translateY(-2px);
+}
+
+.loading-detail {
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+@media (max-width: 1024px) {
+  .detail-content-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .detail-gallery {
+    height: 350px;
+    grid-template-columns: 1fr;
+  }
+  
+  .side-images {
+    display: none;
+  }
+
+  .detail-title {
+    font-size: 2rem;
+  }
+}

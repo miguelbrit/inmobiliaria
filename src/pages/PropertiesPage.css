@@ -1,0 +1,108 @@
+.properties-page {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    background-color: var(--bg-secondary);
+    min-height: 100vh;
+}
+
+.page-header {
+    margin-bottom: 2rem;
+}
+
+.page-title {
+    font-size: 2rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+    color: var(--text-medium);
+}
+
+.properties-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+/* Sidebar Column handled in Filters component mostly, 
+   but specific page layout tweaks go here */
+
+.results-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    background: var(--white);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    color: var(--text-medium);
+    font-size: 0.875rem;
+}
+
+.sort-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sort-controls select {
+    border: none;
+    font-weight: 600;
+    color: var(--text-dark);
+    cursor: pointer;
+    background: transparent;
+}
+
+.properties-grid-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 2rem 0;
+}
+
+.page-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #cbd5e1;
+    background: var(--white);
+    color: var(--text-dark);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.page-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.page-btn.active {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .properties-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .sidebar-col {
+        display: none; /* In a real app, this would be a toggle drawer */
+    }
+}

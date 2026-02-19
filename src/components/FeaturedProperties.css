@@ -1,0 +1,99 @@
+/* Slider Container */
+.featured-section {
+  padding-bottom: 80px;
+  position: relative;
+  overflow: hidden; /* Evitar que el track clonado se vea fuera */
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 32px;
+  margin-bottom: 8px;
+  color: var(--color-dark);
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+}
+
+/* New Slider Structures for Infinite Loop */
+.slider-viewport {
+  width: 100%;
+  overflow: hidden; /* Corta las propiedades que salen del contenedor */
+  padding: 10px;
+  margin: -10px;
+}
+
+.slider-track {
+  will-change: transform;
+}
+
+.slider-item {
+  flex: 0 0 340px; /* Ancho fijo para las cards */
+  transition: opacity 0.3s ease;
+}
+
+/* Controls */
+.slider-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.control-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #E5E5E5;
+  background-color: white;
+  color: var(--color-text-main);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  user-select: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.control-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+
+.mt-5 { margin-top: 40px; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  /* En tablets podemos ajustar el ancho si es necesario, 
+     pero para el loop infinito basado en px es mejor mantener fijos o usar calc */
+}
+
+@media (max-width: 768px) {
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  .slider-controls {
+    align-self: flex-end;
+    margin-top: -20px;
+  }
+
+  .slider-item {
+    /* En móvil el ancho debería ser dinámico, 
+       pero el JS usa 340+24. Ajustemos el JS o el CSS para ser congruentes. */
+    flex: 0 0 300px; 
+  }
+}

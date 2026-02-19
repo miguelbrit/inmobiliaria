@@ -1,0 +1,159 @@
+/* Property Card Houzez Style */
+.property-card {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05); /* Sombra base */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12); /* Sombra hover */
+}
+
+/* Imagen */
+.property-image-container {
+  position: relative;
+  width: 100%;
+  height: 220px; /* Altura fija para consistencia */
+  overflow: hidden;
+}
+
+.property-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.property-card:hover .property-image {
+  transform: scale(1.05); /* Zoom sutil */
+}
+
+/* Badges Flotantes */
+.card-labels {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.property-tag {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  pointer-events: auto;
+}
+
+.tag-sale { background-color: var(--color-primary); }
+.tag-rent { background-color: #ffde59; color: #1a1a1a; }
+.tag-featured { 
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  margin-left: auto; /* Empujar a la derecha si es el único o segundo */
+}
+
+/* Contenido */
+.property-details {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cabecera (Precio y Tipo) */
+.property-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.property-price {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: -0.5px;
+}
+
+.property-type-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  background-color: #F3F4F6;
+  padding: 4px 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+/* Título y Ubicación */
+.property-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.property-location {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Características (Iconos) */
+.property-features {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #F0F0F0;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.feature-icon {
+  color: var(--color-text-secondary); /* Iconos neutros, o primary si prefieres */
+  font-size: 16px;
+}
+
+/* Botón Full Width */
+.property-details .btn-outline {
+  width: 100%;
+  margin-top: auto;
+  padding: 12px;
+  font-size: 14px;
+  border-width: 1px;
+}
+
+.property-details .btn-outline:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary); 
+}

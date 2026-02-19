@@ -1,0 +1,195 @@
+/* Hero Moderno */
+.hero {
+  position: relative;
+  height: 90vh; /* Altura especificada desktop */
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Slider Fade */
+.hero-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 800ms ease-in-out; /* Transición especificada */
+  transform: scale(1.05); /* Efecto Ken Burns ligero opcional */
+}
+
+.hero-slide.active {
+  opacity: 1;
+  transform: scale(1); /* Zoom suave al entrar */
+  transition: opacity 800ms ease-in-out, transform 8s ease;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45); /* Overlay especificado */
+  z-index: 1;
+}
+
+/* Contenido */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-title {
+  font-size: 64px; /* Mayor impacto visual */
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  letter-spacing: -1px;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 48px;
+  opacity: 0.9;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Search Box Flotante */
+.search-box {
+  background-color: white;
+  padding: 24px;
+  border-radius: 12px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15); /* Sombra elevada */
+  width: 100%;
+  max-width: 1000px;
+}
+
+.search-field {
+  flex: 1;
+  text-align: left;
+}
+
+.search-field label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.search-field input,
+.search-field select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #E5E5E5;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--color-text-main);
+  background-color: #F8F9FA;
+  transition: all 0.3s ease;
+}
+
+.search-field input:focus,
+.search-field select:focus {
+  outline: none;
+  background-color: white;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(0, 174, 239, 0.1);
+}
+
+.search-btn {
+  padding: 14px 40px;
+  height: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+.search-btn:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 174, 239, 0.3);
+}
+
+/* Flechas Slider (Ocultas mobile, sutiles desktop) */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.3);
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.slider-arrow:hover {
+  background-color: white;
+  color: var(--color-dark);
+  border-color: white;
+}
+
+.prev { left: 40px; }
+.next { right: 40px; }
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+  .hero { height: 70vh; min-height: 500px; }
+  .hero-title { font-size: 36px; margin-bottom: 16px; }
+  .hero-subtitle { font-size: 16px; margin-bottom: 32px; }
+  
+  .search-box {
+    flex-direction: column;
+    padding: 20px;
+    gap: 16px;
+    background-color: white;
+    width: 90%;
+  }
+
+  .search-btn { width: 100%; }
+  .slider-arrow { display: none; }
+}

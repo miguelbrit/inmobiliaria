@@ -1,0 +1,474 @@
+/* =========================================
+   HOME PAGE DESIGN SYSTEM — UX OPTIMIZED
+   ========================================= */
+
+/* --- 1. Espaciado y Layout Core --- */
+.home-page {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.section-spacing {
+  padding: 120px 0;
+  position: relative;
+}
+
+.container {
+  max-width: 1280px; 
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Backgrounds & Patterns */
+.bg-light { background-color: #F9FAFB; }
+.bg-dark { background-color: #111827; }
+.bg-primary { background-color: var(--color-primary); }
+
+.bg-pattern {
+  background-color: #ffffff;
+  background-image: radial-gradient(#E5E7EB 1.5px, transparent 1.5px);
+  background-size: 32px 32px;
+}
+
+/* --- 2. Grid System (Mobile First approach implicit mostly handled by media queries) --- */
+.grid-responsive-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+
+.grid-responsive-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.grid-responsive-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.grid-responsive-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+}
+
+/* --- 3. Tipografía & Jerarquía Visual --- */
+.heading-xl {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.heading-lg {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #6B7280;
+  max-width: 640px; 
+  margin: 0 auto 64px; /* Más espacio para separar del contenido */
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.text-white { color: white !important; }
+.text-center { text-align: center; }
+
+/* --- 4. Componentes: Interactive Cards --- */
+
+/* Shared Card Hover Dynamics */
+.type-card, .feature-card, .agent-card, .process-card, .testimonial-card {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+/* Type Cards */
+.type-card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  border: 1px solid #F3F4F6;
+  cursor: pointer;
+  height: 100%; /* Equal height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.type-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.08); /* Sombra más suave y difusa */
+  border-color: var(--color-primary);
+}
+
+.type-icon {
+  width: 64px;
+  height: 64px;
+  background-color: #F0F9FF;
+  color: var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.type-card:hover .type-icon {
+  background-color: var(--color-primary);
+  color: white;
+  transform: scale(1.1) rotate(5deg); /* Micro-interacción lúdica */
+}
+
+.type-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 4px;
+}
+
+.type-count {
+  font-size: 14px;
+  color: #9CA3AF;
+  font-weight: 500;
+}
+
+/* Why Choose Us (Features) */
+.feature-card {
+  padding: 40px 32px;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid transparent;
+}
+
+.feature-card:hover {
+  border-color: #E5E7EB;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+.feature-icon-wrapper {
+  width: 72px;
+  height: 72px;
+  background: white;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  color: var(--color-primary);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border: 1px solid #F3F4F6;
+}
+
+.feature-title { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+.feature-desc { color: #6B7280; line-height: 1.6; font-size: 15px; }
+
+/* Stats Section */
+.stats-section {
+  position: relative;
+  overflow: hidden;
+  background-color: #111827; /* Asegurar fondo oscuro */
+}
+
+/* Forzar todo el texto a blanco en esta sección */
+.stats-section,
+.stats-section h2,
+.stats-section p,
+.stats-section span,
+.stats-section div {
+  color: #FFFFFF !important;
+}
+
+.stats-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(45deg, rgba(255,255,255,0.03) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.03) 50%, rgba(255,255,255,0.03) 75%, transparent 75%, transparent);
+  background-size: 60px 60px;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.stats-grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.stat-number {
+  font-size: 56px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* Process Section */
+.process-card {
+  position: relative;
+  padding: 32px 24px 0;
+  text-align: left; /* Escaneo estilo F más natural en columnas */
+}
+
+/* Conector visual entre pasos (Desktop) */
+@media (min-width: 1024px) {
+  .process-card::after {
+    content: '';
+    position: absolute;
+    top: 56px; /* Alinear con el número/icono */
+    right: -20%;
+    width: 40%;
+    height: 2px;
+    background: repeating-linear-gradient(to right, #E5E7EB 0, #E5E7EB 8px, transparent 8px, transparent 16px);
+    z-index: 1;
+  }
+  
+  /* Quitar conector del último elemento */
+  .process-grid > div:last-child::after { display: none; }
+}
+
+.process-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.step-number {
+  font-size: 64px;
+  font-weight: 900;
+  color: #F3F4F6; /* Muy sutil */
+  line-height: 1;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  z-index: 0;
+}
+
+.process-icon {
+  width: 56px;
+  height: 56px;
+  background-color: white;
+  color: var(--color-primary);
+  border: 1px solid #E5E7EB;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.process-title { font-size: 20px; font-weight: 700; margin-bottom: 8px; position: relative; z-index: 1; }
+.process-desc { color: #6B7280; font-size: 15px; position: relative; z-index: 1; }
+
+/* Agents */
+.agent-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #F3F4F6;
+}
+
+.agent-card:hover { transform: translateY(-8px); }
+
+.agent-image-wrapper { height: 320px; background-color: #E5E7EB; overflow: hidden; }
+.agent-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.agent-card:hover .agent-photo {
+  transform: scale(1.1);
+}
+
+.agent-info { padding: 24px; text-align: center; }
+.agent-name { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+.agent-role { color: #6B7280; font-size: 14px; margin-bottom: 16px; }
+
+.btn-link {
+  background: none; border: none;
+  color: var(--color-primary);
+  font-weight: 600; font-size: 14px;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  cursor: pointer;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.btn-link:hover { border-bottom-color: var(--color-primary); }
+
+/* Testimonials */
+.testimonial-card-layout { gap: 40px; }
+.testimonial-card {
+  background: white;
+  padding: 48px;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+  border: 1px solid #F3F4F6;
+}
+
+.quote-icon { color: var(--color-primary); opacity: 0.2; width: 48px; margin-bottom: 24px; }
+
+.testimonial-text {
+  font-size: 20px; /* Texto más grande para lectura fácil (scan) */
+  color: #1F2937;
+  line-height: 1.6;
+  font-style: italic;
+  margin-bottom: 32px;
+}
+
+.testimonial-footer { display: flex; align-items: center; gap: 16px; }
+.author-avatar-sm { width: 56px; height: 56px; background-color: var(--color-primary); border-radius: 50%; opacity: 0.2; }
+.author-name { font-weight: 700; font-size: 16px; margin-bottom: 2px; }
+.author-role { color: #6B7280; font-size: 13px; font-weight: 500; }
+
+/* Locations Collage */
+.grid-collage {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 280px 280px;
+  gap: 24px;
+}
+
+.location-card {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.location-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+  transition: opacity 0.3s ease;
+}
+
+.location-card:hover { transform: scale(1.02); z-index: 10; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2); }
+.location-card.large { grid-column: 1; grid-row: 1 / 3; }
+.location-card.wide { grid-column: 2 / 4; }
+
+.location-overlay {
+  position: absolute; bottom: 0; left: 0; width: 100%;
+  padding: 32px;
+  z-index: 2; /* Encima del gradiente */
+}
+
+.location-overlay h3 { font-size: 24px; font-weight: 700; margin-bottom: 6px; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+.location-overlay span { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; backdrop-filter: blur(4px); }
+
+/* --- 5. CTA Final (Conversion Climax) --- */
+.cta-section {
+  padding: 120px 0;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #0077c8 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative circles */
+.cta-section::before, .cta-section::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+}
+.cta-section::before { width: 400px; height: 400px; top: -100px; left: -100px; }
+.cta-section::after { width: 300px; height: 300px; bottom: -50px; right: -50px; }
+
+.cta-content { position: relative; z-index: 10; max-width: 800px; margin: 0 auto; }
+.cta-description { font-size: 22px; opacity: 0.95; margin-bottom: 48px; font-weight: 300; }
+
+.cta-actions { display: flex; justify-content: center; gap: 24px; }
+
+.btn-lg {
+  padding: 18px 48px;
+  font-size: 18px;
+  border-radius: 12px; /* Botones más amigables */
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease;
+}
+
+.btn-white {
+  background-color: white;
+  color: var(--color-primary);
+  font-weight: 700;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.btn-white:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  background-color: white;
+}
+
+.btn-outline-light {
+  border: 2px solid rgba(255,255,255,0.5);
+  color: white;
+}
+
+.btn-outline-light:hover { background: rgba(255,255,255,0.1); border-color: white; }
+
+/* --- 6. Animaciones --- */
+.fade-up { opacity: 0; animation: fadeUp 1s ease-out forwards; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+/* --- 7. Responsive Mobile Optimization --- */
+@media (max-width: 1024px) {
+  .grid-responsive-5, .grid-responsive-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-collage { grid-template-columns: 1fr 1fr; }
+  .location-card.large { grid-column: 1 / 3; height: 300px; }
+  .process-card::after { display: none; } /* Ocultar conectores */
+}
+
+@media (max-width: 768px) {
+  .section-spacing { padding: 80px 0; }
+  .heading-xl { font-size: 36px; }
+  .heading-lg { font-size: 28px; }
+  .subtitle { font-size: 16px; margin-bottom: 40px; }
+  
+  .grid-responsive-5, .grid-responsive-4, .grid-responsive-3, .grid-responsive-2 { 
+    grid-template-columns: 1fr; /* Single column standard */
+    gap: 32px; 
+  }
+  
+  .stats-grid-wrapper { grid-template-columns: 1fr; gap: 40px; }
+  
+  /* UX Mobile: Botones más grandes */
+  .btn-lg { width: 100%; padding: 16px; margin-bottom: 12px; }
+  .cta-actions { flex-direction: column; gap: 12px; }
+  
+  .grid-collage { display: flex; flex-direction: column; }
+  .location-card { height: 220px !important; }
+}

@@ -1,0 +1,42 @@
+.cta-section {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+  color: var(--white);
+  padding: 4rem 0;
+}
+
+.cta-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.cta-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.cta-text h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.cta-text p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.cta-btn {
+  font-weight: 700;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  color: var(--primary-color) !important;
+}
+
+@media (max-width: 768px) {
+  .cta-content {
+      flex-direction: column;
+      text-align: center;
+  }
+}
